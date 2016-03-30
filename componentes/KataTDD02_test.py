@@ -91,28 +91,33 @@ class KataTDD02Test(TestCase):
         contrasenia = self.browser.find_element_by_id('contrasenia')
         contrasenia.send_keys('clave1234')
 
-        botonLogin = self.browser.find_element_by_id('butLogin')
-        botonLogin.click()
+        self.browser.find_element_by_id('butLogin').click()
 
-        self.browser.implicitly_wait(10)
-        self.browser.find_element_by_id('linkPerfil').click()
+        self.browser.implicitly_wait(15)
+        try:
+            self.browser.find_element_by_id('linkPerfil').click()
+        except:
+            self.browser.find_element_by_id('linkPerfil').click()
 
         nombre = self.browser.find_element_by_id('id_nombre')
+        nombre.clear()
         nombre.send_keys('Sandra')
 
         apellidos = self.browser.find_element_by_id('id_apellidos')
+        apellidos.clear()
         apellidos.send_keys('Perez')
 
         aniosExperiencia = self.browser.find_element_by_id('id_aniosExperiencia')
+        aniosExperiencia.clear()
         aniosExperiencia.send_keys('6')
 
         telefono = self.browser.find_element_by_id('id_telefono')
+        telefono.clear()
         telefono.send_keys('322222')
 
-        botonActualizar = self.browser.find_element_by_id('butActualizar')
-        botonActualizar.click()
+        self.browser.find_element_by_xpath("//input[@value='Actualizar']").click()
 
-        self.browser.implicitly_wait(10)
+        self.browser.implicitly_wait(5)
         p = self.browser.find_element_by_xpath("//p[text()='Sandra Perez']")
 
         self.assertIn('Sandra Perez', p.text)
