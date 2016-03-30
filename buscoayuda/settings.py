@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'buscoayuda.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd1cenlspfk6el5',
-        'USER': 'biyphpetrpehhz',
-        'PASSWORD': 'ENkH59KRvQjJlRcb4ncBUTCPO7',
-        'HOST': 'ec2-107-21-218-93.compute-1.amazonaws.com',
+        'NAME': 'prueba',
+        'USER': 'postgres',
+        'PASSWORD': 'mati',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
