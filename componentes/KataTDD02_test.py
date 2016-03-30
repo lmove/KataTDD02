@@ -34,7 +34,7 @@ class KataTDD02Test(TestCase):
         telefono.send_keys('3111111')
 
         correoElectronico = self.browser.find_element_by_id('correoElectronico')
-        correoElectronico.send_keys('pacho4@buscoayuda.com')
+        correoElectronico.send_keys('pacho5@buscoayuda.com')
 
         contrasenia = self.browser.find_element_by_id('contrasenia')
         contrasenia.send_keys('clave1234')
