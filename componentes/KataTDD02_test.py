@@ -126,16 +126,19 @@ class KataTDD02Test(TestCase):
         self.browser.get('http://localhost:8000')
         self.browser.find_element_by_xpath("//p[text()='Francisco Saenz']").click()
 
+        self.browser.implicitly_wait(5)
         self.browser.find_element_by_id('butComentario').click()
 
-        correoElectronico = self.browser.find_element_by_id('c_correoElectronico')
+        correoElectronico = self.browser.find_element_by_id('correoElectronico')
         correoElectronico.send_keys('test@test.com')
 
-        comentario = self.browser.find_element_by_id('c_comentario')
+        comentario = self.browser.find_element_by_id('comentario')
+        comentario.clear()
         comentario.send_keys('Esto es una prueba de comentario.')
 
         self.browser.find_element_by_id('butComentarioAgregar').click()
 
+        self.browser.implicitly_wait(5)
         b = self.browser.find_element_by_xpath("//b[text()='test@test.com:']")
 
         self.assertIn('test@test.com:', b.text)
