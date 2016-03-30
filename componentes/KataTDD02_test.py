@@ -83,8 +83,7 @@ class KataTDD02Test(TestCase):
 
     def test_update(self):
         self.browser.get('http://localhost:8000')
-        link = self.browser.find_element_by_id('linkLogin')
-        link.click()
+        self.browser.find_element_by_id('linkLogin').click()
 
         correoElectronico = self.browser.find_element_by_id('correoElectronico')
         correoElectronico.send_keys('pacho5@buscoayuda.com')
@@ -96,9 +95,7 @@ class KataTDD02Test(TestCase):
         botonLogin.click()
 
         self.browser.implicitly_wait(10)
-
-        link = self.browser.find_element_by_id('linkPerfil')
-        link.click()
+        self.browser.find_element_by_id('linkPerfil').click()
 
         nombre = self.browser.find_element_by_id('id_nombre')
         nombre.send_keys('Sandra')
