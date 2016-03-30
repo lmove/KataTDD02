@@ -35,11 +35,12 @@
         <span ng-hide="logged">
             <a href="/">Inicio</a> |
             <a href="/register/" id="linkRegistrarse">Registrarse</a> |
-            <a href="/login/"><i class="fa fa-sign-in"></i> Iniciar sesión</a>
+            <a href="/login/" id="linkLogin">Iniciar sesion</a>
         </span>
         <span ng-show="logged">
+            <h6>Bienvenido</h6>
             <a href="/">Inicio</a> |
-            <a ng-click="makeURL()" >Perfil</a> |
+            <a ng-click="makeURL()">Perfil</a> |
             <a href ng-click="log_out()"><i class="fa fa-sign-out"></i> Cerrar sesión</a>
         </span>
     </nav>

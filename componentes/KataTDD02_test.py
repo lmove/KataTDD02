@@ -1,4 +1,4 @@
-from unittest import  TestCase
+from unittest import TestCase
 from selenium import webdriver
 
 class KataTDD02Test(TestCase):
@@ -61,7 +61,7 @@ class KataTDD02Test(TestCase):
 
         self.assertIn('Francisco Saenz', nombre.text)
 
-    def test_login(self):
+    def test_iniciar_sesion(self):
         self.browser.get('http://localhost:8000')
         link = self.browser.find_element_by_id('linkLogin')
         link.click()
@@ -75,7 +75,7 @@ class KataTDD02Test(TestCase):
         botonLogin = self.browser.find_element_by_id('butLogin')
         botonLogin.click()
 
-        self.browser.implicitly_wait(30)
-        perfil = self.browser.find_element_by_id('linkPerfil')
+        self.browser.implicitly_wait(10)
+        h6 = self.browser.find_element_by_xpath("//h6[text()='Bienvenido']")
 
-        self.assertIn('Perfil', perfil.text)
+        self.assertIn('Bienvenido', h6.text)
