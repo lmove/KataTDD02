@@ -63,8 +63,7 @@ class KataTDD02Test(TestCase):
 
     def test_sesion(self):
         self.browser.get('http://localhost:8000')
-        link = self.browser.find_element_by_id('linkLogin')
-        link.click()
+        self.browser.find_element_by_id('linkLogin').click()
 
         correoElectronico = self.browser.find_element_by_id('correoElectronico')
         correoElectronico.send_keys('pacho5@buscoayuda.com')
@@ -72,14 +71,15 @@ class KataTDD02Test(TestCase):
         contrasenia = self.browser.find_element_by_id('contrasenia')
         contrasenia.send_keys('clave1234')
 
-        botonLogin = self.browser.find_element_by_id('butLogin')
-        botonLogin.click()
+        self.browser.find_element_by_id('butLogin').click()
 
-        self.browser.implicitly_wait(10)
-        h6 = self.browser.find_element_by_xpath("//h6[text()='Bienvenido']")
+        self.browser.implicitly_wait(5)
+        try:
+            h6 = self.browser.find_element_by_xpath("//h6[text()='Bienvenido']")
+        except:
+            h6 = self.browser.find_element_by_xpath("//h6[text()='Bienvenido']")
 
         self.assertIn('Bienvenido', h6.text)
-
 
     def test_update(self):
         self.browser.get('http://localhost:8000')
@@ -121,3 +121,22 @@ class KataTDD02Test(TestCase):
         p = self.browser.find_element_by_xpath("//p[text()='Sandra Perez']")
 
         self.assertIn('Sandra Perez', p.text)
+
+    def test_comentarios(self):
+        self.browser.get('http://localhost:8000')
+        self.browser.find_element_by_xpath("//p[text()='Francisco Saenz']").click()
+
+        self.browser.find_element_by_id('butComentario').click()
+
+        correoElectronico = self.browser.find_element_by_id('c_correoElectronico')
+        correoElectronico.send_keys('test@test.com')
+
+        comentario = self.browser.find_element_by_id('c_comentario')
+        comentario.send_keys('Esto es una prueba de comentario.')
+
+        self.browser.find_element_by_id('butComentarioAgregar').click()
+
+        b = self.browser.find_element_by_xpath("//b[text()='test@test.com:']")
+
+        self.assertIn('test@test.com:', b.text)
+
