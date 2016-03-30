@@ -49,3 +49,14 @@ class KataTDD02Test(TestCase):
         p = self.browser.find_element_by_xpath("//p[text()='Francisco Saenz']")
 
         self.assertIn('Francisco Saenz', p.text)
+
+
+    def test_view_detail(self):
+        self.browser.get('http://localhost:8000')
+        self.browser.implicitly_wait(30)
+        p = self.browser.find_element_by_xpath("//p[text()='Francisco Saenz']")
+        p.click()
+
+        nombre = self.browser.find_element_by_id('nombreCompleto')
+
+        self.assertIn('Francisco Saenz', nombre.text)
