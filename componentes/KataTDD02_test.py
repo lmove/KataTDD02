@@ -60,3 +60,22 @@ class KataTDD02Test(TestCase):
         nombre = self.browser.find_element_by_id('nombreCompleto')
 
         self.assertIn('Francisco Saenz', nombre.text)
+
+    def test_login(self):
+        self.browser.get('http://localhost:8000')
+        link = self.browser.find_element_by_id('linkLogin')
+        link.click()
+
+        correoElectronico = self.browser.find_element_by_id('correoElectronico')
+        correoElectronico.send_keys('pacho5@buscoayuda.com')
+
+        contrasenia = self.browser.find_element_by_id('contrasenia')
+        contrasenia.send_keys('clave1234')
+
+        botonLogin = self.browser.find_element_by_id('butLogin')
+        botonLogin.click()
+
+        self.browser.implicitly_wait(30)
+        perfil = self.browser.find_element_by_id('linkPerfil')
+
+        self.assertIn('Perfil', perfil.text)
