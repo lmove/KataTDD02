@@ -143,3 +143,43 @@ class KataTDD02Test(TestCase):
 
         self.assertIn('test@test.com:', b.text)
 
+
+    def test_busqueda(self):
+        self.browser.get('http://localhost:8000')
+        link = self.browser.find_element_by_id('linkRegistrarse')
+        link.click()
+
+        nombre = self.browser.find_element_by_id('nombre')
+        nombre.send_keys('Kata')
+
+        apellidos = self.browser.find_element_by_id('apellidos')
+        apellidos.send_keys('TDD02')
+
+        self.browser.implicitly_wait(3)
+        self.browser.find_element_by_xpath("//select[@id='idServicio']/option[text()='PINTURA']").click()
+
+        aniosExperiencia = self.browser.find_element_by_id('aniosExperiencia')
+        aniosExperiencia.send_keys('3')
+
+        telefono = self.browser.find_element_by_id('telefono')
+        telefono.send_keys('3333333')
+
+        correoElectronico = self.browser.find_element_by_id('correoElectronico')
+        correoElectronico.send_keys('kata@buscoayuda.com')
+
+        contrasenia = self.browser.find_element_by_id('contrasenia')
+        contrasenia.send_keys('clave1234')
+
+        foto = self.browser.find_element_by_id('foto')
+        foto.send_keys('http://es.fakenamegenerator.com/images/sil-male.png')
+
+        botonGuardar = self.browser.find_element_by_id('butGuardar')
+        botonGuardar.click()
+
+        self.browser.implicitly_wait(5)
+
+        self.browser.find_element_by_xpath("//select[@id='idFiltro']/option[text()='PRUEBAS']").click()
+        p = self.browser.find_element_by_xpath("//p[text()='Kata TDD02']")
+
+        self.assertIn('', p.text)
+
