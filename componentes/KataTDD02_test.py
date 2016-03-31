@@ -66,7 +66,7 @@ class KataTDD02Test(TestCase):
         self.browser.find_element_by_id('linkLogin').click()
 
         correoElectronico = self.browser.find_element_by_id('correoElectronico')
-        correoElectronico.send_keys('pacho5@buscoayuda.com')
+        correoElectronico.send_keys('pacho6@buscoayuda.com')
 
         contrasenia = self.browser.find_element_by_id('contrasenia')
         contrasenia.send_keys('clave1234')
@@ -86,7 +86,7 @@ class KataTDD02Test(TestCase):
         self.browser.find_element_by_id('linkLogin').click()
 
         correoElectronico = self.browser.find_element_by_id('correoElectronico')
-        correoElectronico.send_keys('pacho5@buscoayuda.com')
+        correoElectronico.send_keys('pacho6@buscoayuda.com')
 
         contrasenia = self.browser.find_element_by_id('contrasenia')
         contrasenia.send_keys('clave1234')
@@ -124,7 +124,7 @@ class KataTDD02Test(TestCase):
 
     def test_comentarios(self):
         self.browser.get('http://localhost:8000')
-        self.browser.find_element_by_xpath("//p[text()='Francisco Saenz']").click()
+        self.browser.find_element_by_xpath("//p[text()='Sandra Perez']").click()
 
         self.browser.implicitly_wait(5)
         self.browser.find_element_by_id('butComentario').click()
@@ -165,7 +165,7 @@ class KataTDD02Test(TestCase):
         telefono.send_keys('3333333')
 
         correoElectronico = self.browser.find_element_by_id('correoElectronico')
-        correoElectronico.send_keys('kata1@buscoayuda.com')
+        correoElectronico.send_keys('kata@buscoayuda.com')
 
         contrasenia = self.browser.find_element_by_id('contrasenia')
         contrasenia.send_keys('clave1234')
