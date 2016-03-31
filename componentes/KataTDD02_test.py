@@ -165,7 +165,7 @@ class KataTDD02Test(TestCase):
         telefono.send_keys('3333333')
 
         correoElectronico = self.browser.find_element_by_id('correoElectronico')
-        correoElectronico.send_keys('kata@buscoayuda.com')
+        correoElectronico.send_keys('kata1@buscoayuda.com')
 
         contrasenia = self.browser.find_element_by_id('contrasenia')
         contrasenia.send_keys('clave1234')
@@ -178,7 +178,7 @@ class KataTDD02Test(TestCase):
 
         self.browser.implicitly_wait(5)
 
-        self.browser.find_element_by_xpath("//select[@id='idFiltro']/option[text()='PRUEBAS']").click()
+        self.browser.find_element_by_xpath("//select[@id='idFiltro']/option[text()='PRUEBAS']")
         p = self.browser.find_element_by_xpath("//p[text()='Kata TDD02']")
 
         self.assertIn('', p.text)

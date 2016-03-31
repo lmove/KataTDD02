@@ -7,7 +7,7 @@
 <div class="container" ng-controller="ctrl_index">
     <div id="buscoayuda-index-filter">
         <h2 class="buscoayuda-inline-block">Filtro:</h2>
-        <select ng-change="ver_independientes_por_filtro()" ng-model="servicio_seleccionado" class="buscoayuda-inline-block">
+        <select ng-change="ver_independientes_por_filtro()" ng-model="servicio_seleccionado" class="buscoayuda-inline-block" id="idFiltro">
             <option value="-1" selected="selected">Todos</option>
             <option ng-repeat="s in servicios" value="[[s.pk]]">[[s.fields.nombre]]</option>
         </select>
